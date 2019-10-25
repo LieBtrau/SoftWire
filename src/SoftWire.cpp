@@ -442,7 +442,7 @@ uint8_t SoftWire::requestFrom(uint8_t address, uint8_t quantity, uint8_t sendSto
 {
     _rxBufferIndex = 0;
     _rxBufferBytesRead = 0;
-    if (start(address, readMode) == 0) {
+    if (repeatedStart(address, readMode) == 0) {
         for (uint8_t i = 0; i < quantity; ++i) {
             if (i >= _rxBufferSize)
                 break; // Don't write beyond buffer
